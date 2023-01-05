@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            /* background-color: aqua; */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            /* border: 2px solid red; */
+        }
+
+        .input {
+            /* border: 2px solid red; */
+            background-color: black;
+            color: white;
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        img{
+            width: 200px;
+            margin: -90px;
+        }
+
+        input{
+            height: 30px;
+            border-radius: 5px;
+            margin-left: .5rem;
+        }
+
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        button {
+            background-color: cadetblue;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 2px 2px 20px rgb(218, 214, 26), inset -1px -1px 2px 1px yellow;
+        }
+
+        .output {
+            background-color: aqua;
+            width: 100%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow-y:scroll;
+        }
+
+        .output img{
+            width: 45%;
+            opacity: 50%;
+            position: fixed;
+            z-index: 0;
+        }
+    
+        .card{
+            /* border: 2px solid red; */
+            background-color: rgb(115, 216, 95);
+            border-radius: 10px;
+            box-shadow: 3px 3px 20px yellow;
+            width: 300px;
+            height: 150px;
+            padding: .5rem;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            margin: 1rem;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="input">
+        <img src="./R_logo-removebg-preview.png" alt="">
+        <div>
+            <label for="">Name:-</label><input type="text" id="name">
+        </div>
+        <div>
+            <label for="">Mobile Number:-</label><input type="number" id="number">
+        </div>
+        <div>
+            <label for="">E-mail:-</label><input type="email" id="email">
+        </div>
+        <button onclick="card()" type="button">Submit</button>
+    </div>
+    <div class="output" id="output">
+        <img src="./R_bgimage-removebg-preview.png" alt="">
+    </div>
+
+    <script>
+
+        function card(){
+            var output = document.getElementById("output")
+            var name = document.getElementById("name").value
+            var number = document.getElementById("number").value
+            var email = document.getElementById("email").value
+
+            var div = document.createElement("div")
+            div.classList.add("card")
+
+            var h1 = document.createElement("h3")
+            var h2 = document.createElement("h3")
+            var h3 = document.createElement("h3")
+            
+            var h1text = document.createTextNode(`Name :- ${name}`)
+            var h2text = document.createTextNode(`Mobile Number :- ${number}`)
+            var h3text = document.createTextNode(`Email :- ${email}`)
+
+            h1.appendChild(h1text)
+            h2.appendChild(h2text)
+            h3.appendChild(h3text)
+
+            div.appendChild(h1)
+            div.appendChild(h2)
+            div.appendChild(h3)
+
+            output.appendChild(div)
+
+            document.getElementById("name").value = ""
+            document.getElementById("number").value = ""
+            document.getElementById("email").value = ""
+        }
+    </script>
+</body>
+
+</html>
